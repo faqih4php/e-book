@@ -24,7 +24,6 @@ class BorrowingController extends Controller
         }
         
         $borrowing->update(['status' => 'approved']);
-        $borrowing->book->update(['status' => 'borrowed']);
 
         $borrowing->user->notify(new \App\Notifications\BorrowStatusUpdated($borrowing));
 
@@ -38,6 +37,7 @@ class BorrowingController extends Controller
         }
 
         $borrowing->update(['status' => 'rejected']);
+        $borrowing->book->increment('stock');
 
         $borrowing->user->notify(new \App\Notifications\BorrowStatusUpdated($borrowing));
 

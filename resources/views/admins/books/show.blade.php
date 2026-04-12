@@ -40,12 +40,12 @@
                                 </div>
                             @endif
                             <div class="mt-4">
-                                @if ($book->status === 'available')
+                                @if ($book->stock > 0)
                                     <span class="badge bg-success p-2 fs-sm text-uppercase"><i
                                             class="fa fa-check-circle me-1"></i> Available</span>
                                 @else
                                     <span class="badge bg-danger p-2 fs-sm text-uppercase"><i
-                                            class="fa fa-times-circle me-1"></i> Borrowed</span>
+                                            class="fa fa-times-circle me-1"></i> Not Available</span>
                                 @endif
                             </div>
                         </div>
@@ -79,6 +79,10 @@
                                         <td>{{ $book->publication_year ?? 'No publication year available' }}</td>
                                     </tr>
                                     <tr>
+                                        <td class="fw-semibold">Stock</td>
+                                        <td>{{ $book->stock }}</td>
+                                    </tr>
+                                    <tr>
                                         <td class="fw-semibold">Pages</td>
                                         <td>{{ $book->page ?? 'No page count available' }} Pages</td>
                                     </tr>
@@ -91,7 +95,7 @@
 
                             @if (auth()->user()->role == 'user')
                                 <div class="mt-5 border-top pt-4 text-end">
-                                    @if ($book->status === 'available')
+                                    @if ($book->stock > 0)
                                         <a href="{{ route('user.borrowings.create', ['book_id' => $book->id]) }}"
                                             class="btn btn-lg btn-alt-primary">
                                             <i class="fa fa-hand-holding me-1"></i> Borrow This Book

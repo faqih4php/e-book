@@ -47,12 +47,12 @@
                     <thead>
                         <tr>
                             <th class="text-center" style="width: 5%;">NO</th>
-                            <th>User</th>
-                            <th>Book Title</th>
-                            <th>Borrow Date</th>
-                            <th>Return Date</th>
-                            <th>Notes</th>
-                            <th class="text-center" style="width: 15%;">Action</th>
+                            <th style="width: 10%">User</th>
+                            <th style="width: 15%">Book Title</th>
+                            <th style="width: 5%">Borrow Date</th>
+                            <th style="width: 5%">Return Date</th>
+                            <th style="width: 10%">Notes</th>
+                            <th class="text-center" style="width: 20%;">Action</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -64,7 +64,8 @@
                             <h4 class="mb-1 text-truncate" title="{{ $book->title }}">{{ $book->title }}</h4>
                             <p class="fs-sm fw-medium text-muted mb-1">{{ $book->author }} ({{ $book->publication_year }})
                             </p>
-                            <p class="fs-sm text-muted mb-2">{{ $book->page }} pages</p>
+                            <p class="fs-sm text-muted mb-1">{{ $book->page }} pages</p>
+                            <p class="fs-sm text-muted mb-2"><strong>Stock:</strong> {{ $book->stock }}</p>
                             @if ($book->synopsis)
                                 <p class="fs-sm text-muted text-break"
                                     style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;"
@@ -74,7 +75,7 @@
                             @endif
                         </div>
                         <div class="block-content block-content-full bg-body-light text-center mt-auto">
-                            @if ($book->status === 'available')
+                            @if ($book->stock > 0)
                                 <div class="d-flex justify-content-between align-items-center">
                                     <a href="{{ route('user.borrowings.create', ['book_id' => $book->id]) }}"
                                         class="btn btn-sm btn-alt-primary w-75">
@@ -90,7 +91,7 @@
                                 </div>
                             @else
                                 <button type="button" class="btn btn-sm btn-alt-danger w-100" disabled>
-                                    <i class="fa fa-times me-1"></i> Borrowed
+                                    <i class="fa fa-times me-1"></i> Out of Stock
                                 </button>
                             @endif
                         </div>
