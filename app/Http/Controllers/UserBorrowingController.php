@@ -38,9 +38,11 @@ class UserBorrowingController extends Controller
         ]);
 
         $book = Book::findOrFail($request->book_id);
-        if ($book->status !== 'available') {
-            return redirect()->back()->with('error', 'Book is not available for borrowing.');
+        if ($book->stock <= 0) {
+            return redirect()->back()->with('error', 'Book is out of stock.');
         }
+
+        $book->decrement('stock');
 
         $borrowing = Borrowing::create([
             'book_id' => $request->book_id,

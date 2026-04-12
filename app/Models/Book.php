@@ -14,5 +14,6 @@ class Book extends Model
         'synopsis',
         'image',
         'status',
+        'stock',
     ];
 }

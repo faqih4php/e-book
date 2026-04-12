@@ -76,6 +76,21 @@
                                 </div>
                             </div>
                             <div class="mb-4">
+                                <label class="form-label" for="stock">Stock</label>
+                                <div class="input-group">
+                                    <span class="input-group-text form-control-lg form-control-alt me-1">
+                                        <i class="far fa-copy"></i>
+                                    </span>
+                                    <input type="number" class="form-control form-control-lg form-control-alt @error('stock') is-invalid @enderror"
+                                        id="stock" name="stock" placeholder="Number of stock" min="0" value="{{ old('stock', 0) }}">
+                                </div>
+                                @error('stock')
+                                    <div id="stock-error" class="invalid-feedback animate fadeIn d-block">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="mb-4">
                                 <label for="synopsis" class="form-label">Synopsis</label>
                                 <div class="input-group">
                                     <span class="input-group-text form-control-lg form-control-alt me-1">

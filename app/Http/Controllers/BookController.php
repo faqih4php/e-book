@@ -36,6 +36,7 @@ class BookController extends Controller
             'publication_year' => 'required|date',
             'page' => 'required|integer|min:1',
             'synopsis' => 'nullable|string',
+            'stock' => 'required|integer|min:0',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -47,6 +48,7 @@ class BookController extends Controller
             'publication_year' => date('Y', strtotime($request->publication_year)),
             'page' => $request->page,
             'synopsis' => $request->synopsis,
+            'stock' => $request->stock,
             'image' => $imagePath,
             'status' => 'available',
         ]);
@@ -74,6 +76,7 @@ class BookController extends Controller
             'publication_year' => 'required|date',
             'page' => 'required|integer|min:1',
             'synopsis' => 'nullable|string',
+            'stock' => 'required|integer|min:0',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -85,6 +88,7 @@ class BookController extends Controller
             'publication_year' => date('Y', strtotime($request->publication_year)),
             'page' => $request->page,
             'synopsis' => $request->synopsis,
+            'stock' => $request->stock,
         ];
 
         if ($request->hasFile('image')) {

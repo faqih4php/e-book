@@ -25,8 +25,8 @@ class ReversionController extends Controller
 
         $reversion->update(['status' => 'approved']);
         
-        // Update borrowing record if needed, but the main thing is the book status
-        $reversion->borrowing->book->update(['status' => 'available']);
+        // Update borrowing record if needed, but the main thing is the book stock
+        $reversion->borrowing->book->increment('stock');
 
         $reversion->borrowing->user->notify(new \App\Notifications\ReturnStatusUpdated($reversion));
 
