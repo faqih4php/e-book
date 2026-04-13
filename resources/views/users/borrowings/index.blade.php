@@ -83,7 +83,7 @@
                                     </a>
                                     <button type="button" class="btn btn-sm btn-alt-primary js-bs-tooltip-enabled"
                                         data-bs-toggle="tooltip" aria-label="View" data-bs-original-title="View">
-                                        <a href="{{ route('books.show', $book->id) }}"
+                                        <a href="{{ route('books.show.user', $book->id) }}"
                                             class="text-primary text-decoration-none">
                                             <i class="fa fa-fw fa-eye"></i>
                                         </a>

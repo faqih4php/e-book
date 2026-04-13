@@ -106,11 +106,11 @@ class BookController extends Controller
     public function destroy(string $id)
     {
         $book = Book::findOrFail($id);
-        
+
         if ($book->image && \Illuminate\Support\Facades\Storage::disk('public')->exists($book->image)) {
             \Illuminate\Support\Facades\Storage::disk('public')->delete($book->image);
         }
-        
+
         $book->delete();
 
         return redirect()->route('books.index')->with('success', 'Book successfully deleted.');

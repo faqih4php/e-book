@@ -21,9 +21,6 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('auths.logout');
 
 // Shared Auth Routes for both Admin and User
 Route::middleware('auth')->group(function () {
-    Route::get('/books/search', [BookController::class, 'search'])->name('books.search');
-    Route::get('/books/{book}', [BookController::class, 'show'])->name('books.show');
-    
     // Notifications
     Route::get('/notifications/{id}/read', [NotificationController::class, 'read'])->name('notifications.read');
     Route::delete('/notifications/{id}', [NotificationController::class, 'destroy'])->name('notifications.destroy');
@@ -35,7 +32,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dashboard-admin', [HomeController::class, 'dashboardAdmin'])->name('dashboard.admin');
     
     Route::resource('users', UserController::class);
+    Route::get('/books/search', [BookController::class, 'search'])->name('books.search');
     Route::resource('books', BookController::class)->except(['show']);
+    Route::get('/books/{book}', [BookController::class, 'show'])->name('books.show');
     
     // Borrowings logic for Admin (Approval)
     Route::get('/borrowings', [BorrowingController::class, 'index'])->name('borrowings.index');
@@ -51,6 +50,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 // User Routes
 Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/dashboard-user', [HomeController::class, 'dashboardUser'])->name('users.dashboard');
+    
+    Route::get('/books/{book}', [BookController::class, 'show'])->name('books.show.user');
     
     Route::get('/user/borrowings', [UserBorrowingController::class, 'index'])->name('user.borrowings.index');
     Route::get('/user/borrowings/{book_id}/create', [UserBorrowingController::class, 'create'])->name('user.borrowings.create');

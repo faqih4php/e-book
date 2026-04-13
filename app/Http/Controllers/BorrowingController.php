@@ -13,7 +13,7 @@ class BorrowingController extends Controller
         $borrowings = Borrowing::with(['book', 'user'])
             ->where('status', 'pending')
             ->get();
-            
+
         return view('admins.borrowings.index', compact('borrowings'));
     }
 
@@ -22,7 +22,7 @@ class BorrowingController extends Controller
         if ($borrowing->status !== 'pending') {
             return redirect()->back()->with('error', 'Borrowing request is not pending.');
         }
-        
+
         $borrowing->update(['status' => 'approved']);
 
         $borrowing->user->notify(new \App\Notifications\BorrowStatusUpdated($borrowing));

@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Borrowing;
 use App\Models\Book;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Notifications\BorrowRequested;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 
 class UserBorrowingController extends Controller
 {
@@ -53,8 +56,8 @@ class UserBorrowingController extends Controller
             'status' => 'pending', // Pending admin approval
         ]);
 
-        $admins = \App\Models\User::query()->where('role', 'admin')->get();
-        \Illuminate\Support\Facades\Notification::send($admins, new \App\Notifications\BorrowRequested($borrowing));
+        $admins = User::query()->where('role', 'admin')->get();
+        Notification::send($admins, new BorrowRequested($borrowing));
 
         // Don't update book status to borrowed until admin approves
         return redirect()->route('user.borrowings.index')->with('success', 'Borrowing request submitted successfully. Please wait for admin approval.');

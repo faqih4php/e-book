@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Reversion;
 use App\Models\Borrowing;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\ReturnRequested;
 
 class UserReversionController extends Controller
 {
@@ -15,6 +17,7 @@ class UserReversionController extends Controller
         // Check if there's no reversion yet or status of borrowing is not yet completely returned
         $borrowings = Borrowing::query()->where('user_id', auth()->id())
             ->where('status', 'approved')
+            // fugnsi untuk mengecek
             ->where(function($query) {
                 $query->whereDoesntHave('reversion')
                     ->orWhereHas('reversion', function($q) {
@@ -34,7 +37,7 @@ class UserReversionController extends Controller
         ]);
 
         $borrowing = Borrowing::where('user_id', auth()->id())->findOrFail($borrowing_id);
-
+        
         if ($borrowing->status !== 'approved') {
             return redirect()->back()->with('error', 'You cannot return a book that is not approved.');
         }
@@ -46,7 +49,7 @@ class UserReversionController extends Controller
         ]);
 
         $admins = \App\Models\User::query()->where('role', 'admin')->get();
-        \Illuminate\Support\Facades\Notification::send($admins, new \App\Notifications\ReturnRequested($reversion));
+        Notification::send($admins, new ReturnRequested($reversion));
 
         return redirect()->route('user.reversions.index')->with('success', 'Return request submitted. Please wait for admin to verify.');
     }
