@@ -103,13 +103,13 @@
                     <thead>
                         <tr>
                             <th class="text-center" style="width: 5%;">NO</th>
-                            <th style="width: 25%;">Title</th>
+                            <th style="width: 20%;">Title</th>
                             <th class="d-none d-sm-table-cell" style="width: 15%;">Author</th>
-                            <th style="width: 15%;">Published Date</th>
-                            <th style="width: 15%;">Pages</th>
-                            {{-- <th style="width: 10%;">Image</th> --}}
+                            <th style="width: 5%;">Published Date</th>
+                            <th style="width: 10%;">Pages</th>
+                            <th style="width: 10%;">Stock</th>
                             <th style="width: 15%;">Status</th>
-                            <th style="width: 15%;">Action</th>
+                            <th style="width: 20%;">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -128,9 +128,9 @@
                                 <td class="d-none d-sm-table-cell">
                                     <span class="text-muted">{{ $book->page }}</span>
                                 </td>
-                                {{-- <td class="d-none d-sm-table-cell">
-                                    <span class="text-muted">{{ $book->image }}</span>
-                                </td> --}}
+                                <td class="d-none d-sm-table-cell">
+                                    <span class="text-muted">{{ $book->stock }}</span>
+                                </td>
                                 <td class="d-none d-sm-table-cell">
                                     @if ($book->status == 'available')
                                         <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-info-light text-info">Available</span>

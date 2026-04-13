@@ -19,7 +19,7 @@
             <span class="smini-visible">
               <i class="fa fa-circle-notch text-primary"></i>
             </span>
-            <span class="smini-hide fs-5 tracking-wider">E-Book</span>
+            <span class="smini-hide fs-5 tracking-wider">BookLoop</span>
           </a>
           <!-- END Logo -->
 

@@ -13,7 +13,7 @@
     -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <title>E-Book - Login</title>
+    <title>BookLoop - Login</title>
 
     <meta name="description" content="E-Book">
     <meta name="author" content="pixelcave">
@@ -94,7 +94,7 @@
               <div class="p-4 p-xl-5 flex-grow-1 d-flex align-items-center">
                 <div class="w-100">
                   <a class="link-fx fw-semibold fs-2 text-white" >
-                    E-Book
+                    BookLoop
                   </a>
                   <p class="text-white-75 me-xl-8 mt-2">
                     Welcome to book lending app. Feel free to login and start picking your books!
@@ -103,7 +103,7 @@
               </div>
               <div class="p-4 p-xl-5 d-xl-flex justify-content-between align-items-center fs-sm">
                 <p class="fw-medium text-white-50 mb-0">
-                  <strong>E-Book</strong> &copy; <span data-toggle="year-copy"></span>
+                  <strong>BookLoop</strong> &copy; <span data-toggle="year-copy"></span>
                 </p>
                 <ul class="list list-inline mb-0 py-2">
                   <li class="list-inline-item">
@@ -191,7 +191,7 @@
               </div>
               <div class="px-4 py-3 w-100 d-lg-none d-flex flex-column flex-sm-row justify-content-between fs-sm text-center text-sm-start">
                 <p class="fw-medium text-black-50 py-2 mb-0">
-                  <strong>E-Book</strong> &copy; <span data-toggle="year-copy"></span>
+                  <strong>BookLoop</strong> &copy; <span data-toggle="year-copy"></span>
                 </p>
                 <ul class="list list-inline py-2 mb-0">
                   <li class="list-inline-item">

@@ -13,16 +13,16 @@
     -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <title>E-Book - Register</title>
+    <title>BookLoop - Register</title>
 
-    <meta name="description" content="E-Book">
+    <meta name="description" content="BookLoop">
     <meta name="author" content="pixelcave">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph Meta -->
-    <meta property="og:title" content="E-Book">
-    <meta property="og:site_name" content="E-Book">
-    <meta property="og:description" content="E-Book">
+    <meta property="og:title" content="BookLoop">
+    <meta property="og:site_name" content="BookLoop">
+    <meta property="og:description" content="BookLoop">
     <meta property="og:type" content="website">
     <meta property="og:url" content="">
     <meta property="og:image" content="">
@@ -94,7 +94,7 @@
               <div class="p-4 p-xl-5 flex-grow-1 d-flex align-items-center">
                 <div class="w-100">
                   <a class="link-fx fw-semibold fs-2 text-white" href="index.html">
-                    E-Book
+                    BookLoop
                   </a>
                   <p class="text-white-75 me-xl-8 mt-2">
                     Creating a new account is completely free. Get started and enjoy reading books!
@@ -103,7 +103,7 @@
               </div>
               <div class="p-4 p-xl-5 d-xl-flex justify-content-between align-items-center fs-sm">
                 <p class="fw-medium text-white-50 mb-0">
-                  <strong>E-Book</strong> &copy; <span data-toggle="year-copy"></span>
+                  <strong>BookLoop</strong> &copy; <span data-toggle="year-copy"></span>
                 </p>
                 <ul class="list list-inline mb-0 py-2">
                   <li class="list-inline-item">
@@ -124,7 +124,7 @@
             <div class="hero-static col-lg-8 d-flex flex-column align-items-center bg-body-extra-light">
               <div class="p-3 w-100 d-lg-none text-center">
                 <a class="link-fx fw-semibold fs-3 text-dark" href="index.html">
-                  E-Book
+                  BookLoop
                 </a>
               </div>
               <div class="p-4 w-100 flex-grow-1 d-flex align-items-center">
